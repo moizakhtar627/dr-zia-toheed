@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Books reading section at Zia Homeopathic Clinic">
+  <title>Zia Homeopathic Clinic | Books</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="books-data.js" defer></script>
+  <script src="books-page.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="index.html"><span class="logo-text">Zia Homeopathic Clinic</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="pharmacy.html">Pharmacy</a>
+      <a href="books.html" class="active">Books</a>
+      <div class="dropdown">
+        <button class="dropdown-toggle" id="aboutDropdownToggle" aria-haspopup="true" aria-expanded="false" type="button">About Us</button>
+        <div class="dropdown-menu" id="aboutDropdownMenu" role="menu">
+          <a href="about.html#about-clinic" role="menuitem">About Our Clinic</a>
+          <a href="about.html#about-doctor" role="menuitem">About Dr. Zia Toheed</a>
+        </div>
+      </div>
+      <a href="index.html#contact">Contact</a>
+      <a class="nav-cta" href="https://wa.me/923005269513" target="_blank" rel="noopener noreferrer">Book Consultation</a>
+    </nav>
+  </header>
+  <main>
+    <section class="section books-section">
+      <div class="section-heading">
+        <h2>Our <span>Books</span></h2>
+        <p>Search and filter our reading library.</p>
+      </div>
+      <div class="books-toolbar">
+        <input id="booksSearch" type="search" placeholder="Search by title, author, description" aria-label="Search books">
+        <select id="booksCategory" aria-label="Filter by category"><option value="">All Categories</option></select>
+      </div>
+      <div class="books-grid" id="booksGrid"></div>
+      <div id="noBooksResults" class="no-results" hidden><p>No books match your search.</p></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div><a href="index.html" class="logo footer-logo"><span class="logo-text">Zia Homeopathic Clinic</span></a></div>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a><a href="index.html#services">Services</a><a href="pharmacy.html">Pharmacy</a><a href="books.html">Books</a><a href="about.html">About Us</a><a href="index.html#contact">Contact</a>
+    </nav>
+    <div>
+      <p>Wah Cantt, Pakistan • 4:00 PM - 8:00 PM</p>
+      <p>0300 5269513 • WhatsApp: 0300 5269513</p>
+      <p>&copy; <span id="year"></span> Zia Homeopathic Clinic</p>
+    </div>
+  </footer>
+</body>
+</html>

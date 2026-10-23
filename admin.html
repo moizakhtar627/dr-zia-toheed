@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Zia Homeopathic Clinic</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="admin.js" defer></script>
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <h2>Zia Admin</h2>
+      <nav>
+        <a href="#dashboard" data-tab="dashboard">Overview</a>
+        <a href="#books" data-tab="books">Manage Books</a>
+        <a href="#medicines" data-tab="medicines">Manage Medicines</a>
+        <a href="#add-book" data-tab="add-book">Add/Edit Book</a>
+        <a href="#add-medicine" data-tab="add-medicine">Add/Edit Medicine</a>
+        <a href="#categories" data-tab="categories">Categories</a>
+        <button id="logoutBtn" type="button">Logout</button>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <section id="tab-dashboard" class="admin-tab">
+        <h1>Dashboard</h1>
+        <div class="stats">
+          <div class="stat-card"><h3>Total Books</h3><p id="stat-total-books">0</p></div>
+          <div class="stat-card"><h3>Published Books</h3><p id="stat-pub-books">0</p></div>
+          <div class="stat-card"><h3>Total Medicines</h3><p id="stat-total-meds">0</p></div>
+          <div class="stat-card"><h3>Published Medicines</h3><p id="stat-pub-meds">0</p></div>
+        </div>
+        <p style="margin-top:20px;color:var(--muted);">Recent additions appear in public Books/Pharmacy sections once published.</p>
+      </section>
+
+      <section id="tab-books" class="admin-tab" hidden>
+        <h1>Manage Books</h1>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead><tr><th>Title</th><th>Author</th><th>Status</th><th>Popular</th><th>Order</th><th>Actions</th></tr></thead>
+            <tbody id="booksTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="tab-medicines" class="admin-tab" hidden>
+        <h1>Manage Medicines</h1>
+        <div class="table-wrap">
+          <table class="admin-table">
+            <thead><tr><th>Name</th><th>Orig/Disc/Takeaway/Online</th><th>Stock</th><th>Published</th><th>Order</th><th>Actions</th></tr></thead>
+            <tbody id="medicinesTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="tab-add-book" class="admin-tab" hidden>
+        <h1>Add / Edit Book</h1>
+        <form id="bookForm" class="admin-form">
+          <input type="hidden" id="bookId">
+          <label>Book title* <input id="title" required></label>
+          <label>Author name <input id="author"></label>
+          <label>Short description <textarea id="short_desc"></textarea></label>
+          <label>Full description <textarea id="full_desc"></textarea></label>
+          <label>Category
+            <select id="category_id"><option value="">None</option></select>
+          </label>
+          <label>Book cover image (upload or URL)
+            <input type="file" id="cover_file" accept="image/*">
+          </label>
+          <label>Cover image URL <input id="cover_url"></label>
+          <label>Book type*
+            <select id="book_type" required>
+              <option value="pdf">PDF</option>
+              <option value="online">Online Text</option>
+              <option value="external">External Link</option>
+            </select>
+          </label>
+          <div id="pdfFields" hidden>
+            <label>Upload PDF file (PDF only) <input type="file" id="pdf_file" accept="application/pdf"></label>
+          </div>
+          <div id="extFields">
+            <label>Reading URL <input id="reading_url"></label>
+          </div>
+          <div id="onlineFields" hidden>
+            <label>Reading Content <textarea id="reading_content" rows="8"></textarea></label>
+          </div>
+          <label>Popular on Homepage <select id="is_popular"><option value="0">No</option><option value="1">Yes</option></select></label>
+          <label>Publication Status <select id="is_published"><option value="0">Draft</option><option value="1">Published</option></select></label>
+          <label>Display Order <input type="number" id="display_order" value="0"></label>
+          <div class="form-actions">
+            <button type="submit" class="button button-primary">Save Book</button>
+            <button type="button" id="deleteBook" class="button" style="color:#d33" hidden>Delete Book</button>
+            <a href="#books" class="button button-outline">Cancel</a>
+          </div>
+          <p id="formMsg"></p>
+        </form>
+      </section>
+
+      <section id="tab-add-medicine" class="admin-tab" hidden>
+        <h1>Add / Edit Medicine</h1>
+        <form id="medicineForm" class="admin-form">
+          <input type="hidden" id="medicineId">
+          <label>Medicine name* <input id="med_name" required></label>
+          <label>Short description <textarea id="med_desc"></textarea></label>
+          <label>Medicine image <input type="file" id="med_image" accept="image/*"></label>
+          <label>Original price (Rs.) <input id="med_orig" type="number" step="0.01" min="0"></label>
+          <label>Discounted price (Rs.) <input id="med_disc" type="number" step="0.01" min="0"></label>
+          <label>Take-away price (Rs.) <input id="med_takeaway" type="number" step="0.01" min="0"></label>
+          <label>Online delivery price (Rs.) <input id="med_online" type="number" step="0.01" min="0"></label>
+          <label>Stock availability <select id="med_stock"><option value="1">In Stock</option><option value="0">Out of Stock</option></select></label>
+          <label>Publish <select id="med_published"><option value="1">Published</option><option value="0">Unpublished</option></select></label>
+          <label>Display Order <input type="number" id="med_order" value="0"></label>
+          <div class="form-actions">
+            <button type="submit" class="button button-primary">Save Medicine</button>
+            <button type="button" id="deleteMedicine" class="button" style="color:#d33" hidden>Delete Medicine</button>
+            <a href="#medicines" class="button button-outline">Cancel</a>
+          </div>
+          <p id="medFormMsg"></p>
+        </form>
+      </section>
+
+      <section id="tab-categories" class="admin-tab" hidden>
+        <h1>Categories</h1>
+        <form id="catForm" class="admin-form inline">
+          <input id="catName" placeholder="Category name" required>
+          <button class="button button-primary">Add Category</button>
+        </form>
+        <table class="admin-table"><thead><tr><th>ID</th><th>Name</th><th>Actions</th></tr></thead><tbody id="catsTable"></tbody></table>
+      </section>
+    </main>
+  </div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <h2>Admin Login</h2>
+      <form id="loginForm">
+        <label>Email <input id="loginUser" type="email" required></label>
+        <label>Password <input id="loginPass" type="password" required></label>
+        <button class="button button-primary" type="submit">Login</button>
+        <p id="loginMsg"></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

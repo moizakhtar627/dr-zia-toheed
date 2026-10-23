@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Zia Homeopathic Clinic and Dr. Zia Toheed (DHMS, RHMP) in Wah Cantt.">
+  <title>Zia Homeopathic Clinic | About Us</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="index.html">
+      <span class="logo-text">Zia Homeopathic Clinic</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="pharmacy.html">Pharmacy</a>
+      <a href="books.html">Books</a>
+      <div class="dropdown">
+        <button class="dropdown-toggle active" id="aboutDropdownToggle" aria-haspopup="true" aria-expanded="false" type="button">
+          About Us
+        </button>
+        <div class="dropdown-menu" id="aboutDropdownMenu" role="menu">
+          <a href="about.html#about-clinic" role="menuitem">About Our Clinic</a>
+          <a href="about.html#about-doctor" role="menuitem">About Dr. Zia Toheed</a>
+        </div>
+      </div>
+      <a href="index.html#contact">Contact</a>
+      <a class="nav-cta" href="https://wa.me/923005269513" target="_blank" rel="noopener noreferrer">Book Consultation</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-heading">
+        <h2>About <span>Us</span></h2>
+        <p>Homeopathic care in Wah Cantt — our clinic and our physician.</p>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about-clinic">
+      <div class="about-content">
+        <h2>About Our Clinic</h2>
+        <p>Zia Homeopathic Clinic is a homeopathic clinic based in Wah Cantt. We provide consultation options including in-clinic appointments, video consultations, and home visits where available.</p>
+        <p>Visitors can enquire about appointments, services, and medicine availability. Our focus is on clear communication and helping people get the information they need to make informed decisions about their enquiries.</p>
+        <p>The clinic is located on Darbar-e-Kareemi Road near Taji Hotel, Gulshan e Raza, G.T Road, Wah Cantt, and is open daily from 4:00 PM to 8:00 PM.</p>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about-doctor">
+      <div class="about-content about-dr">
+        <h2>About Dr. Zia Toheed</h2>
+        <div class="doctor-profile">
+          <img src="dr.zia.png" alt="Dr. Zia Toheed" class="doctor-profile-img">
+          <div>
+            <strong>Dr. Zia Toheed</strong>
+            <small>DHMS, RHMP</small>
+          </div>
+        </div>
+        <p>Dr. Zia Toheed is a homeopathic physician at Zia Homeopathic Clinic in Wah Cantt. He is qualified as DHMS and registered under RHMP.</p>
+        <p>At the clinic he sees patients for a wide range of everyday health concerns, with a focus on attentive one-to-one consultation and clear guidance.</p>
+        <p>Appointments are available in person, by video call, or as a home visit where suitable. For timings, availability or medicine enquiries, please contact the clinic on WhatsApp.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <a href="index.html" class="logo footer-logo">
+        <span class="logo-text">Zia Homeopathic Clinic</span>
+      </a>
+    </div>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="pharmacy.html">Pharmacy</a>
+      <a href="books.html">Books</a>
+      <a href="about.html">About Us</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div>
+      <p>Wah Cantt, Pakistan • 4:00 PM - 8:00 PM</p>
+      <p>0300 5269513 • WhatsApp: 0300 5269513</p>
+      <p>&copy; <span id="year"></span> Zia Homeopathic Clinic</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/923005269513" target="_blank" rel="noopener noreferrer" aria-label="Chat with clinic on WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.52 3.48A11.93 11.93 0 0012 0C5.37 0 0 5.37 0 12a11.9 11.9 0 001.64 6.06L0 24l6.09-1.6A12 12 0 0012 24c6.63 0 12-5.37 12-12a11.93 11.93 0 00-3.48-8.52zM12 22a9.94 9.94 0 01-5.06-1.4l-.36-.21-3.61.95.96-3.52-.23-.38A9.94 9.94 0 012 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.2-7.06c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14s-.7.9-.86 1.08c-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.52-.44-.45-.61-.46-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.97 2.63 1.1 2.81c.14.18 1.9 2.9 4.6 4.06.64.28 1.14.44 1.53.56.65.21 1.24.18 1.71.11.52-.08 1.65-.67 1.88-1.32.23-.65.16-1.2.11-1.32-.05-.12-.23-.18-.51-.32z"></path>
+    </svg>
+  </a>
+</body>
+</html>

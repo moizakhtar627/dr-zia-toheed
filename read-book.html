@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Read Book</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="read-book.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="index.html"><span class="logo-text">Zia Homeopathic Clinic</span></a>
+  </header>
+  <main class="section">
+    <div class="reader">
+      <a href="books.html" class="button button-outline">← Back to Books</a>
+      <h1 id="rbTitle"></h1>
+      <p id="rbAuthor"></p>
+      <div id="rbMeta"></div>
+      <div class="reader-controls">
+        <label>Font Size: <input type="range" id="fontRange" min="14" max="26" value="18"></label>
+      </div>
+      <div id="rbContent" class="reader-content"></div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div><a href="index.html" class="logo footer-logo"><span class="logo-text">Zia Homeopathic Clinic</span></a></div>
+  </footer>
+</body>
+</html>
