@@ -8,11 +8,10 @@ const cookieParser = require("cookie-parser");
 const multer = require("multer");
 const sqlite3 = require("sqlite3").verbose();
 const { supabase, supabaseAdmin } = require('./supabase-client');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 const PUBLIC_DIR = process.env.VERCEL ? path.join(__dirname, '..') : __dirname;
 app.use(express.static(PUBLIC_DIR));
