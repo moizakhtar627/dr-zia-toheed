@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "server.js",
+          "supabase-client.js",
+          "style.css",
+          "script.js",
+          "home-meds.js",
+          "books-data.js",
+          "books-home.js",
+          "pharmacy.js",
+          "read-book.js",
+          "admin.js",
+          "medicine-example.svg",
+          "dr.zia.png",
+          "index.html",
+          "admin.html",
+          "pharmacy.html",
+          "books.html",
+          "read-book.html",
+          "about.html",
+          "covers/**",
+          "uploads/**"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/index.js" }
+  ],
+  "cleanOutputs": true
+}
