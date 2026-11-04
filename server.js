@@ -17,9 +17,16 @@ const PUBLIC_DIR = process.env.VERCEL ? path.join(__dirname, '..') : __dirname;
 app.use(express.static(PUBLIC_DIR));
 
 const DB_PATH = path.join(PUBLIC_DIR, "data.db");
-const UPLOADS_DIR = path.join(PUBLIC_DIR, "uploads");
-const COVERS_DIR = path.join(PUBLIC_DIR, "covers");
-if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+const IS_VERCEL = !!process.env.VERCEL;
+const UPLOADS_DIR = IS_VERCEL ? '/tmp/uploads' : path.join(PUBLIC_DIR, "uploads");
+const COVERS_DIR = IS_VERCEL ? UPLOADS_DIR : path.join(PUBLIC_DIR, "covers");
+fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+fs.mkdirSync(COVERS_DIR, { recursive: true });
+
+if (IS_VERCEL) {
+  app.use('/uploads', express.static(UPLOADS_DIR));
+  app.use('/covers', express.static(COVERS_DIR));
+}
 
 const db = new sqlite3.Database(DB_PATH);
 
@@ -381,17 +388,15 @@ app.delete('/api/admin/categories/:id', authRequired, (req, res) => {
   });
 });
 
-const isVercel = !!process.env.VERCEL;
-
-if (isVercel) {
+if (IS_VERCEL) {
   console.log('Running in Vercel serverless mode: app exported, no listen()');
 }
 
 module.exports = app;
-if (require.main === module && !isVercel) {
+if (require.main === module && !IS_VERCEL) {
   app.listen(PORT, () => {
     console.log('Server running on port', PORT);
   });
-} else if (require.main === module && isVercel) {
+} else if (require.main === module && IS_VERCEL) {
   console.warn('app.listen() skipped in Vercel serverless environment');
 }
