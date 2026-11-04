@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "buildCommand": "npm rebuild sqlite3 --build-from-source",
   "installCommand": "npm ci",
   "builds": [
     {
